@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+<!--
+    Author: Dharmin B.
+    walls:
+             ______2_______ 
+            |              | 
+           4|      origin  | 1
+            |      .       | 
+            |______________|
+                   3  
+    tree:
+        origin-1
+        1-2
+        1-3
+        1-4
+-->
+
+<robot name="single-room">	
+
+  	<link name="origin">
+        <inertial> 
+            <origin xyz="0 0 0" />
+            <mass value="0" />
+            <inertia  ixx="0" ixy="0"  ixz="0"  iyy="0"  iyz="0"  izz="0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01"/>
+            </geometry>
+        </collision>
+  	</link>
+
+	<joint name="join1" type="fixed">
+        <origin xyz="2.0 0 0.15" rpy="0 0 0"/>
+        <parent link="origin"/>
+        <child link="wall_1"/>
+  	</joint>
+	
+  	<link name="wall_1">
+        <inertial> 
+            <origin xyz="0 0 0" />
+            <mass value="10.0" />
+            <inertia  ixx="1.0" ixy="0"  ixz="0"  iyy="1.0"  iyz="0"  izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 3.0 0.5" /> 
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 3.0 0.5"/>
+            </geometry>
+        </collision>
+  	</link>
+
+  	<joint name="join2" type="fixed">
+        <origin xyz="-2.0 1.5 0" rpy="0 0 1.570796"/>
+        <parent link="wall_1"/>
+        <child link="wall_2"/>
+  	</joint>
+	
+  	<link name="wall_2">
+        <inertial> 
+            <origin xyz="0 0 0" />
+            <mass value="10.0" />
+            <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 4.0 0.5" /> 
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 4.0 0.5"/>
+            </geometry>
+        </collision>
+  	</link>
+
+  	<joint name="join3" type="fixed">
+        <origin xyz="-2.0 -1.5 0" rpy="0 0 1.570796"/>
+        <parent link="wall_1"/>
+        <child link="wall_3"/>
+  	</joint>
+	
+  	<link name="wall_3">
+        <inertial> 
+            <origin xyz="0 0 0" />
+            <mass value="10.0" />
+            <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 4.0 0.5" /> 
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 4.0 0.5"/>
+            </geometry>
+        </collision>
+  	</link>
+	
+  	<joint name="join4" type="fixed">
+        <origin xyz="-4.0 0 0" rpy="0 0 0"/>
+        <parent link="wall_1"/>
+        <child link="wall_4"/>
+  	</joint>
+	
+  	<link name="wall_4">
+        <inertial> 
+            <origin xyz="0 0 0" />
+            <mass value="10.0" />
+            <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 3.0 0.5" /> 
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0"/>
+            <geometry>
+                <box size="0.04 3.0 0.5"/>
+            </geometry>
+        </collision>
+  	</link>
+	
+	
+  <gazebo reference="wall_1">
+	<material>Gazebo/White</material>
+	<selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="wall_2">
+	<material>Gazebo/White</material>
+	<selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="wall_3">
+	<material>Gazebo/White</material>
+	<selfCollide>false</selfCollide>
+  </gazebo>
+  <gazebo reference="wall_4">
+	<material>Gazebo/White</material>
+	<selfCollide>false</selfCollide>
+  </gazebo>
+  
+</robot>
